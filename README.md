@@ -8,6 +8,7 @@ The CNN model is inspired by <a href=https://arxiv.org/abs/1408.5882> Convolutio
 2. Chainer
 3. vsmlib
 4. numpy
+5. Word Embeddings (It can be downloaded from https://nlp.stanford.edu/projects/glove/, the Stanford NLP group has a bunch of open source pre-trained Glove embeddings or you can use your own embeddings. Just specify the path in config.yaml)
 
 <b>Dataset</b>
 The Movie Reviews (MR) dataset (https://www.cs.cornell.edu/people/pabo/movie-review-data/) is used for this model.
