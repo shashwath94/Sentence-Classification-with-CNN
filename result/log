@@ -1,0 +1,65 @@
+[
+    {
+        "main/loss": 0.8568389415740967,
+        "validation/main/loss": 0.7109746932983398,
+        "main/accuracy": 0.550000011920929,
+        "epoch": 1,
+        "validation/main/accuracy": 0.550000011920929,
+        "iteration": 2,
+        "elapsed_time": 0.27451419830322266
+    },
+    {
+        "main/loss": 0.8720045983791351,
+        "validation/main/loss": 0.8057438731193542,
+        "main/accuracy": 0.4750000089406967,
+        "epoch": 2,
+        "validation/main/accuracy": 0.550000011920929,
+        "iteration": 4,
+        "elapsed_time": 0.7463536262512207
+    },
+    {
+        "main/loss": 0.7746254801750183,
+        "validation/main/loss": 0.6369266510009766,
+        "main/accuracy": 0.5,
+        "epoch": 3,
+        "validation/main/accuracy": 0.550000011920929,
+        "iteration": 6,
+        "elapsed_time": 1.2386479377746582
+    },
+    {
+        "main/loss": 0.7063924670219421,
+        "validation/main/loss": 0.8282990455627441,
+        "main/accuracy": 0.5999999940395355,
+        "epoch": 4,
+        "validation/main/accuracy": 0.4000000059604645,
+        "iteration": 8,
+        "elapsed_time": 1.6760246753692627
+    },
+    {
+        "main/loss": 0.6870202720165253,
+        "validation/main/loss": 0.6366397738456726,
+        "main/accuracy": 0.6500000059604645,
+        "epoch": 5,
+        "validation/main/accuracy": 0.6000000238418579,
+        "iteration": 10,
+        "elapsed_time": 2.0573549270629883
+    },
+    {
+        "main/loss": 0.7108054459095001,
+        "validation/main/loss": 0.8382251858711243,
+        "main/accuracy": 0.5499999970197678,
+        "epoch": 6,
+        "validation/main/accuracy": 0.30000001192092896,
+        "iteration": 12,
+        "elapsed_time": 2.465235710144043
+    },
+    {
+        "main/loss": 0.7171882390975952,
+        "validation/main/loss": 0.6837285161018372,
+        "main/accuracy": 0.5666666825612386,
+        "epoch": 7,
+        "validation/main/accuracy": 0.75,
+        "iteration": 15,
+        "elapsed_time": 2.93941330909729
+    }
+]

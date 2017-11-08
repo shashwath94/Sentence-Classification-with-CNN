@@ -12,6 +12,7 @@ class DataProcessor(object):
     def __init__(self, data_path, test):
         self.train_data_path = os.path.join(data_path, "train.txt")
         self.dev_data_path = os.path.join(data_path, "dev.txt")
+        self.test_data_path = os.path.join(data_path, "test.txt")
         self.test = test # if true, provide tiny datasets for quick test
         self.vocab = defaultdict(lambda: len(self.vocab))
         self.vocab["<pad>"]
@@ -21,6 +22,7 @@ class DataProcessor(object):
         sys.stderr.write("loading dataset...")
         self.train_data = self.load_dataset("train")
         self.dev_data = self.load_dataset("dev")
+        self.test_data = self.load_dataset("test")
         if self.test:
             sys.stderr.write("...preparing tiny dataset for quick test...")
             self.train_data = self.train_data[:100]
@@ -32,6 +34,8 @@ class DataProcessor(object):
             path = self.train_data_path
         elif _type == "dev":
             path = self.dev_data_path
+        else:
+            path = self.test_data_path
         dataset = []
         with open(path, "r") as input_data:
             for line in input_data:

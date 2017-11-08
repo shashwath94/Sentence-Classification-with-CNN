@@ -6,13 +6,14 @@ import chainer.links as L
 import numpy as np
 from chainer import cuda, Function, Variable
 from chainer import Link, Chain
+import vsmlib
 
 
 class CNN(Chain):
 
-    def __init__(self, n_vocab, input_channel, output_channel, n_label, embed_dim, train=True):
+    def __init__(self, n_vocab, input_channel, output_channel, n_label, embed_dim, freeze, train=True):
         super(CNN, self).__init__(
-            embed=L.EmbedID(n_vocab, embed_dim),  # embedding vector size
+            embed=L.EmbedID(n_vocab, embed_dim), 
             conv3=L.Convolution2D(
                 input_channel, output_channel, (3, embed_dim)),
             conv4=L.Convolution2D(
@@ -22,21 +23,26 @@ class CNN(Chain):
             l1=L.Linear(3 * output_channel, n_label)
         )
         self.train = train
+        self.freeze = freeze
 
-    def load_embeddings(self, glove_path, vocab):
+    def load_embeddings(self, emb_path, vocab):
         assert self.embed != None
         sys.stderr.write("loading word embedddings...")
-        with open(glove_path, "r") as fi:
-            for line in fi:
-                line_list = line.strip().split(" ")
-                word = line_list[0]
-                if word in vocab:
-                    vec = self.xp.array(line_list[1::], dtype=np.float32)
-                    self.embed.W.data[vocab[word]] = vec
+        m = vsmlib.model.load_from_dir(emb_path)
+
+        emb_ids = m.vocabulary.dic_words_ids.keys()
+        dataset_ids = vocab.keys()
+
+        for word in vocab.keys():
+            if m.has_word(word.lower()):
+                self.embed.W.data[vocab[word]] = m.get_row(word)
+        #print(self.embed.W.data.shape)
         sys.stderr.write("done\n")
 
     def __call__(self, xs):
-        self.embed.disable_update()
+        
+        if self.freeze:
+            self.embed.disable_update()
         xs = self.embed(xs)
         batchsize, height, width = xs.shape
         xs = F.reshape(xs, (batchsize, 1, height, width))

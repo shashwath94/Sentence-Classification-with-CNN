@@ -1,8 +1,8 @@
-path_vectors: /home/shashwath/ldt/Li-wiki201308_filtered/structured_deps/cbow/100d/vectors.txt
+path_vectors: /home/shashwath/vsmsc/emb/
 path_dataset: ./data/
 gpu: -1
 batch_size: 20
 epochs: 25
 test: False
 embed_dim: 100
-
+freeze_embedding: False
