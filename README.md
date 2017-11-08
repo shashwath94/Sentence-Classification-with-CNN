@@ -12,7 +12,7 @@ The CNN model is inspired by <a href=https://arxiv.org/abs/1408.5882> Convolutio
 
 <b>Dataset</b>
 The Movie Reviews (MR) dataset (https://www.cs.cornell.edu/people/pabo/movie-review-data/) is used for this model.
-The Train, dev and test sets have to be present. The path can be specified in cofig.yaml file.
+The Train, dev and test sets have to be present. The path can be specified in cofig.yaml file. A small subset of the data is provided to get you started.
 ```
 1 That was so beautiful that it can't be put into words . (POSITIVE SETENCE)
 0 I do not want to go to school because I do like to study math . (NEGATIVE SENTENCE)
